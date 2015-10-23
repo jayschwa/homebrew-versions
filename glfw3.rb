@@ -1,4 +1,5 @@
 class Glfw3 < Formula
+  desc "Multi-platform library for OpenGL applications"
   homepage "http://www.glfw.org/"
   url "https://github.com/glfw/glfw/archive/3.1.2.tar.gz"
   sha256 "6ac642087682aaf7f8397761a41a99042b2c656498217a1c63ba9706d1eef122"
@@ -9,12 +10,12 @@ class Glfw3 < Formula
     sha256 "e75bdc4478ee0510be626b78ff1f0862de8ff9fea26d9b4432ce2b7967c9b80c" => :mountain_lion
   end
 
-  depends_on "cmake" => :build
-
   option :universal
   option "without-shared-library", "Build static library only (defaults to building dylib only)"
   option "with-examples", "Build examples"
   option "with-tests", "Build test programs"
+
+  depends_on "cmake" => :build
 
   deprecated_option "build-examples" => "with-examples"
   deprecated_option "static" => "without-shared-library"
