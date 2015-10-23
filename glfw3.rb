@@ -38,6 +38,7 @@ class Glfw3 < Formula
 
     system "cmake", *args
     system "make", "install"
+    libexec.install Dir["examples/*"] if build.with? "examples"
     libexec.install Dir["tests/*"] if build.with? "tests"
   end
 
