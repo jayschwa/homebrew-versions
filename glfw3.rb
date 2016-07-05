@@ -14,13 +14,14 @@ class Glfw3 < Formula
   option :universal
   option "without-shared-library", "Build static library only (defaults to building dylib only)"
   option "with-examples", "Build examples"
-  option "with-tests", "Build test programs"
+  option "with-test", "Build test programs"
 
   depends_on "cmake" => :build
 
   deprecated_option "build-examples" => "with-examples"
   deprecated_option "static" => "without-shared-library"
-  deprecated_option "build-tests" => "with-tests"
+  deprecated_option "build-tests" => "with-test"
+  deprecated_option "with-tests" => "with-test"
 
   # make library name consistent
   patch :DATA
@@ -35,7 +36,7 @@ class Glfw3 < Formula
     args << "-DGLFW_BUILD_UNIVERSAL=TRUE" if build.universal?
     args << "-DBUILD_SHARED_LIBS=TRUE" if build.with? "shared-library"
     args << "-DGLFW_BUILD_EXAMPLES=TRUE" if build.with? "examples"
-    args << "-DGLFW_BUILD_TESTS=TRUE" if build.with? "tests"
+    args << "-DGLFW_BUILD_TESTS=TRUE" if build.with? "test"
     args << "."
 
     system "cmake", *args
